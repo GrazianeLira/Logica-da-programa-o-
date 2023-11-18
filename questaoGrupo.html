@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>questão Grupo</title>
+</head>
+
+<body>
+    <script>
+        //*Você está desenvolvendo um sistema de gestão de notas para uma universidade.Em cada utilização, o usuário digita as notas da turma de uma disciplina.A digitação das notas deve acontecer até que o usuário entre com uma nota negativa.Finalizada a entrada de dados, primeiro o sistema exibe a média da turma.Depois, exibe a listagens de notas.Por fim, exibe a maior e a menor nota da turma.*//
+
+        let nota = 0
+        let notas = []
+        let acumular = 0
+        let media = 0
+
+
+        nota = parseFloat(prompt("Informe uma nota")) 
+
+        while (nota >= 0) {  // entrada de dados, quando digitar um nota negativa para 
+            notas.push(nota)
+            acumular += nota
+            nota = parseFloat(prompt("informe uma nota"))
+        }
+
+        media = acumular / notas.length // o valor acumulado divido por notas digitadas, length quer dizer comprimento. retornar a quantidade de caracteres de uma string ou o tamanho de um array
+
+        document.write("Media: " + media.toFixed(2) + "<br>") // imprime a nota
+
+
+        for (let x of notas) {
+            document.write("notas digitadas: " + x + "<br>") // mostra todas as notas digitadas
+
+        }
+
+        let notaMenor = notas[0]    
+        let notaMaior = notas[0]
+
+
+        for (let i = 1; i < notas.length; i++) { //loop pra saber se 
+            if (notas[i] < notaMenor) {
+                notaMenor = notas[i]
+            }
+            if (notas[i] > notaMaior) {
+                notaMaior = notas[i]
+            }
+
+        } 
+        document.write(" A menor nota digitada foi: " + notaMenor + "<br>") // imprime a menor nota
+        document.write(" A maior nota digitada foi: " + notaMaior + "<br>") // imprime a maior nota
+
+
+
+
+    </script>
+</body>
+
+</html>
